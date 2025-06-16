@@ -1,7 +1,15 @@
 version: '3.8'
 
 services:
-    
+  opentelemetry-collector:
+    build:
+      context: ./opentelemetry-collector
+      dockerfile: dockerfile
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    volumes:
+      - opentelemetry-collector_data:/var/otelcol-contrib
   prometheus:
     build:
       context: ./prometheus
@@ -50,19 +58,10 @@ services:
       - LOKI_INTERNAL_URL=http://loki:3100
       - PROMETHEUS_INTERNAL_URL=http://prometheus:9090
       - TEMPO_INTERNAL_URL=http://tempo:3200
-  
-  example_api: 
-    build:
-      context: ./examples/api
-      dockerfile: dockerfile
-    ports:
-      - "9091:9091"
-    environment:
-      - TEMPO_URL=http://tempo:4318
-      - TEMPO_SERVICE_NAME=example_api
 
 volumes: 
   prometheus_data:
   loki_data:
   grafana_data:
   tempo_data:
+  opentelemetry-collector_data:
