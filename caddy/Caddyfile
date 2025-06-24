@@ -1,6 +1,5 @@
 :80 {
-    # Reverse proxy for the metrics endpoint
-    reverse_proxy /web/api/metrics https://socialsundae.io/api/metrics {
+    reverse_proxy /api/metrics https://socialsundae.io {
         header_up X-API-Key {$API_KEY}
     }
 } 
