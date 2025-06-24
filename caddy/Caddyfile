@@ -1,8 +1,3 @@
-{
-    # Enable environment variable substitution
-    env
-}
-
 :80 {
     # Reverse proxy for the metrics endpoint
     reverse_proxy /web/api/metrics https://socialsundae.io/api/metrics {
