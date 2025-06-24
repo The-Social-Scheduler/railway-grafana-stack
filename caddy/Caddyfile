@@ -1,4 +1,5 @@
 :80 {
+    log
     reverse_proxy /api/metrics https://socialsundae.io {
         header_up X-API-Key {$API_KEY}
     }
