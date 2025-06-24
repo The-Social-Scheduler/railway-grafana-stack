@@ -1,6 +1,11 @@
 version: '3.8'
 
 services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: dockerfile
+
   opentelemetry-collector:
     build:
       context: ./opentelemetry-collector
@@ -19,6 +24,8 @@ services:
       - "9090:9090"
     volumes:
       - prometheus_data:/prometheus
+    depends_on:
+      - nginx
 
   loki:
     build:
