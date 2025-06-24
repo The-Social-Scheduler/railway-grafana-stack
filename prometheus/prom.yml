@@ -15,4 +15,4 @@ scrape_configs:
     http_headers:
       X-API-Key: 
         values: 
-          - ${METRICS_API_KEY:-metrics-api-key}
+          - ${METRICS_API_KEY}
