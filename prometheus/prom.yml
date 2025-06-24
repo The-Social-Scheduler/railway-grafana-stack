@@ -12,6 +12,5 @@ scrape_configs:
       - targets: ["web.railway.internal"]
     metrics_path: "/metrics"
     scrape_interval: 15s
-    http_config:
-      headers:
-        X-API-Key: ${METRICS_API_KEY:-metrics-api-key}
+    http_headers:
+      X-API-Key: ${METRICS_API_KEY:-metrics-api-key}
