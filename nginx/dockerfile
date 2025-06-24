@@ -1,4 +1,0 @@
-FROM nginx:alpine
-
-# Copy the nginx configuration template to the templates directory
-COPY nginx.conf /etc/nginx/templates/default.conf.template

@@ -1,10 +1,12 @@
 version: '3.8'
 
 services:
-  nginx:
+  caddy:
     build:
-      context: ./nginx
+      context: ./caddy
       dockerfile: dockerfile
+    environment:
+      - API_KEY=${API_KEY}
 
   opentelemetry-collector:
     build:
