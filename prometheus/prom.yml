@@ -11,4 +11,5 @@ scrape_configs:
     static_configs:
       - targets: ["caddy-production-669f.up.railway.app"]
     metrics_path: "/api/metrics"
+    scheme: https
     scrape_interval: 15s
