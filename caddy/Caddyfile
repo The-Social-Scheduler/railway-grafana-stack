@@ -3,7 +3,7 @@
         output stdout
         format console
     }
-    reverse_proxy /api/metrics https://socialsundae.io {
+    reverse_proxy /api/metrics web:80 {
         header_up X-API-Key {$API_KEY}
         header_up YO "Dawg"
     }
