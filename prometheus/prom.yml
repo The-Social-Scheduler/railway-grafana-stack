@@ -9,6 +9,6 @@ scrape_configs:
 
   - job_name: "app-metrics"
     static_configs:
-      - targets: ["caddy"]
+      - targets: ["caddy-production-669f.up.railway.app"]
     metrics_path: "/api/metrics"
     scrape_interval: 15s
