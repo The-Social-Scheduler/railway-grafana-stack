@@ -5,7 +5,7 @@
         header_up Host socialsundae.io
         header_up User-Agent "PostmanRuntime/7.32.3"
         header_up Accept "*/*"
-        header_up Accept-Encoding "gzip, deflate, br"
+        # header_up Accept-Encoding "gzip, deflate, br"
         header_up Connection "keep-alive"
     }
 } 
