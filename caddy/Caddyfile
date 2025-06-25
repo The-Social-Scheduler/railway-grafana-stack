@@ -3,30 +3,8 @@
         output stdout
         format console
     }
-    
-    # Temporary debug endpoint to check if API_KEY is set
-    handle /debug {
-        respond "API_KEY is: {$API_KEY}" 200
-    }
-    
-    # Test direct API call
-    handle /test-api {
-        reverse_proxy https://socialsundae.io/api/metrics {
-            header_up X-API-Key {$API_KEY}
-            header_up User-Agent "Caddy-Proxy/2.0"
-        }
-    }
-    
-    # Handle metrics requests with logging
-    handle /api/metrics {
-        log {
-            output stdout
-            format console
-        }
-        reverse_proxy https://socialsundae.io {
-            header_up X-API-Key {$API_KEY}
-            header_up User-Agent "Caddy-Proxy/2.0"
-            header_up Accept "application/openmetrics-text;version=1.0.0,text/plain;version=0.0.4,*/*"
-        }
+    reverse_proxy /api/metrics https://socialsundae.io {
+        header_up X-API-Key {$API_KEY}
+        header_up YO "Dawg"
     }
 } 
