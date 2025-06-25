@@ -1,6 +1,6 @@
 :80 {
     log    
-    reverse_proxy /api/metrics https://socialsundae.io/api/metrics {
+    reverse_proxy /api/metrics https://socialsundae.io {
         header_up X-API-Key {$API_KEY}
         header_up Host socialsundae.io
         header_up User-Agent "PostmanRuntime/7.32.3"
