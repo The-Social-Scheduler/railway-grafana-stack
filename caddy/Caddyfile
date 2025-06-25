@@ -1,7 +1,12 @@
 :80 {
     log
+    
+    # Debug endpoint to check API key
+    handle /debug {
+        respond "API_KEY: {$API_KEY}" 200
+    }
+    
     reverse_proxy /api/metrics https://socialsundae.io {
-        header_up X-API-Key {$API_KEY}
         header_up User-Agent "PostmanRuntime/7.32.3"
         header_up Accept "*/*"
         header_up Accept-Encoding "gzip, deflate, br"
