@@ -8,12 +8,15 @@
     
     # Test if Caddy can reach any external site
     handle /test-external {
-        reverse_proxy https://httpbin.org/anything
+        reverse_proxy https://httpbin.org {
+            uri strip_prefix /test-external /anything
+        }
     }
     
     # Test direct call to socialsundae.io
     handle /test-direct {
-        reverse_proxy https://socialsundae.io/api/metrics {
+        reverse_proxy https://socialsundae.io {
+            uri strip_prefix /test-direct /api/metrics
             header_up X-API-Key {$API_KEY}
             header_up User-Agent "PostmanRuntime/7.32.3"
         }
