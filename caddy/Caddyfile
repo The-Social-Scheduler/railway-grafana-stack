@@ -2,10 +2,6 @@
     log    
     reverse_proxy /api/metrics https://socialsundae.io {
         header_up X-API-Key {$API_KEY}
-        header_up Host socialsundae.io
-        header_up User-Agent "PostmanRuntime/7.32.3"
-        header_up Accept "*/*"
-        # header_up Accept-Encoding "gzip, deflate, br"
-        header_up Connection "keep-alive"
+        header_up Host socialsundae.io        
     }
 } 
